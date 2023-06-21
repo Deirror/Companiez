@@ -31,9 +31,15 @@ namespace CompaniesProjectz.Controllers
             
                 List<string> instinvstnames = new List<string>();
 
+<<<<<<< HEAD
                 foreach (var elements in context.InstitutionalInvestors)
                 {
                     instinvstnames.Add(elements.InvestorName);
+=======
+                foreach (var el in context.InstitutionalInvestors)
+                {
+                    instinvstnames.Add(el.InvestorName);
+>>>>>>> 6b236e3ec42601cd7f8fe3ca0169c46cfd47f455
                 }
 
                 return instinvstnames;
