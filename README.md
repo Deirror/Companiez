@@ -1,6 +1,6 @@
 # Companiez
 
-![brands-image-3](https://github.com/user-attachments/assets/80044c99-7d1a-4503-ba95-83bdc80bedbb)
+![brands-image-3](https://github.com/user-attachments/assets/d89c8001-2e5d-4558-b22a-15ae72d28f78)
 
 Brief Description:
 -
