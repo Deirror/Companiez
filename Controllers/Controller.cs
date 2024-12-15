@@ -11,44 +11,40 @@ using CompaniesProjectz.Data;
 using CompaniesProjectz.Properties;
 using System.Linq;
 
-
-
-
 namespace CompaniesProjectz.Controllers
 {
     public class Controller
     {
-        
-       private CompaniesProjectzDbContext context;
-  
+
+        private CompaniesProjectzDbContext context;
+
         public Controller()
         {
-           context = new CompaniesProjectzDbContext();
+            context = new CompaniesProjectzDbContext();
         }
-        
+
         public List<string> InstNamesInfo()
         {
-            
-                List<string> instinvstnames = new List<string>();
 
-<<<<<<< HEAD
-                foreach (var elements in context.InstitutionalInvestors)
-                {
-                    instinvstnames.Add(elements.InvestorName);
-=======
-                foreach (var el in context.InstitutionalInvestors)
-                {
-                    instinvstnames.Add(el.InvestorName);
->>>>>>> 6b236e3ec42601cd7f8fe3ca0169c46cfd47f455
-                }
+            List<string> instinvstnames = new List<string>();
 
-                return instinvstnames;
-            
+
+            foreach (var elements in context.InstitutionalInvestors)
+            {
+                instinvstnames.Add(elements.InvestorName);
+
+            }
+            foreach (var el in context.InstitutionalInvestors)
+            {
+                instinvstnames.Add(el.InvestorName);
+            }
+
+            return instinvstnames;
         }
 
-        public List<string> IndvNamesInfo()
-        {
-           
+            public List<string> IndvNamesInfo()
+            {
+
                 List<string> indvinvstnames = new List<string>();
 
                 foreach (var el in context.IndividualInvestors)
@@ -56,50 +52,50 @@ namespace CompaniesProjectz.Controllers
                     indvinvstnames.Add(el.InvestorName);
                 }
                 return indvinvstnames;
-            
-        }
-
-        public int GetCompanyId(string symbol)
-        {
-            var row = context.Companies.FirstOrDefault(x => x.TickerSymbol == symbol);
-            if (row != null)
-            {
-                return row.CompanyId;
-            }
-            else return -1;
-        }
-
-        public List<int> GettingIds(int tableid)
-        {
-            List<int> ids = new List<int>();
-            if (tableid==1)
-            {
-                foreach (var el in context.Companies) ids.Add(el.CompanyId);
-            }
-            else if (tableid==2)
-            {
-                foreach (var el in context.Owners) ids.Add(el.OwnerId);
-            }
-            else if (tableid==3)
-            {
-                foreach (var el in context.Statistics) ids.Add(el.StatsId); 
-            }
-            else if (tableid==4)
-            {
-                foreach (var el in context.IndividualInvestors) ids.Add(el.InvestorId);
 
             }
-            else if (tableid==5)
+
+            public int GetCompanyId(string symbol)
             {
-                foreach (var el in context.InstitutionalInvestors) ids.Add(el.InvestorId);
+                var row = context.Companies.FirstOrDefault(x => x.TickerSymbol == symbol);
+                if (row != null)
+                {
+                    return row.CompanyId;
+                }
+                else return -1;
             }
 
-            return ids;
-        }    
+            public List<int> GettingIds(int tableid)
+            {
+                List<int> ids = new List<int>();
+                if (tableid == 1)
+                {
+                    foreach (var el in context.Companies) ids.Add(el.CompanyId);
+                }
+                else if (tableid == 2)
+                {
+                    foreach (var el in context.Owners) ids.Add(el.OwnerId);
+                }
+                else if (tableid == 3)
+                {
+                    foreach (var el in context.Statistics) ids.Add(el.StatsId);
+                }
+                else if (tableid == 4)
+                {
+                    foreach (var el in context.IndividualInvestors) ids.Add(el.InvestorId);
 
-        public List<string> SymbolInfo()
-        {
-           
+                }
+                else if (tableid == 5)
+                {
+                    foreach (var el in context.InstitutionalInvestors) ids.Add(el.InvestorId);
+                }
+
+                return ids;
+            }
+
+            public List<string> SymbolInfo()
+            {
+
                 List<string> symbols = new List<string>();
 
                 foreach (var el in context.Companies)
@@ -107,30 +103,30 @@ namespace CompaniesProjectz.Controllers
                     symbols.Add(el.TickerSymbol);
                 }
                 return symbols;
-            
 
-        }
-        public List<object> GetInfoCI()
-        {
-            List<object> list = new List<object>();
-            foreach (var el in context.CompaniesInstInvestors)
-            {
-                list.Add(el);
-            }
-            foreach (var el in context.InstitutionalInvestors)
-            {
-                list.Add(el);
-            }
-            foreach (var el in context.Companies)
-            {
-                list.Add(el);
-            }
 
-            return list;
-        }
-        public List<object> ListBoxInfo()
-        {
-         
+            }
+            public List<object> GetInfoCI()
+            {
+                List<object> list = new List<object>();
+                foreach (var el in context.CompaniesInstInvestors)
+                {
+                    list.Add(el);
+                }
+                foreach (var el in context.InstitutionalInvestors)
+                {
+                    list.Add(el);
+                }
+                foreach (var el in context.Companies)
+                {
+                    list.Add(el);
+                }
+
+                return list;
+            }
+            public List<object> ListBoxInfo()
+            {
+
                 List<object> list = new List<object>();
 
                 foreach (var el in context.Companies)
@@ -174,11 +170,11 @@ namespace CompaniesProjectz.Controllers
                 }
 
                 return list;
-            
-        }
 
-        public void Update(object obj,int choice)
-        {
+            }
+
+            public void Update(object obj, int choice)
+            {
 
                 if (obj is Company)
                 {
@@ -242,7 +238,7 @@ namespace CompaniesProjectz.Controllers
 
                         if (statistic.BuyOrSell != null) row.BuyOrSell = statistic.BuyOrSell;
 
-                         context.SaveChanges();
+                        context.SaveChanges();
                     }
                     else MessageBox.Show("Invalid Id");
 
@@ -291,15 +287,15 @@ namespace CompaniesProjectz.Controllers
                     }
                     else MessageBox.Show("Invalid Id");
                 }
-            
-        }
 
-        public void AddC(object obj)
-        {
+            }
+
+            public void AddC(object obj)
+            {
 
                 if (obj is Company)
                 {
-                    context.Companies.Add((Company)obj);                
+                    context.Companies.Add((Company)obj);
                     context.SaveChanges();
                 }
                 else if (obj is Owner)
@@ -318,7 +314,7 @@ namespace CompaniesProjectz.Controllers
                 {
 
                     context.IndividualInvestors.Add((IndividualInvestor)obj);
-                   context.SaveChanges();
+                    context.SaveChanges();
                 }
                 else if (obj is InstitutionalInvestor)
                 {
@@ -329,32 +325,32 @@ namespace CompaniesProjectz.Controllers
                 else if (obj is CompaniesInstInvestor)
                 {
                     context.CompaniesInstInvestors.Add((CompaniesInstInvestor)obj);
-                   context.SaveChanges();
-                }
-
-        }
-        public void DeleteInst(int choice)
-        {
-            foreach (var el in context.InstitutionalInvestors)
-            {
-                if(el.InvestorId == choice)
-                {
-                    context.Remove(el);
-                }
-            }
-
-            foreach (var el in context.CompaniesInstInvestors)
-            {
-                if (el.IdInstinvestorNavigation.InvestorId== choice)
-                {
-                    context.Remove(el);
+                    context.SaveChanges();
                 }
 
             }
-            context.SaveChanges();
-        }
-        public void DeleteC(string choice)
-        {
+            public void DeleteInst(int choice)
+            {
+                foreach (var el in context.InstitutionalInvestors)
+                {
+                    if (el.InvestorId == choice)
+                    {
+                        context.Remove(el);
+                    }
+                }
+
+                foreach (var el in context.CompaniesInstInvestors)
+                {
+                    if (el.IdInstinvestorNavigation.InvestorId == choice)
+                    {
+                        context.Remove(el);
+                    }
+
+                }
+                context.SaveChanges();
+            }
+            public void DeleteC(string choice)
+            {
 
                 foreach (var el in context.Companies)
                 {
@@ -403,12 +399,12 @@ namespace CompaniesProjectz.Controllers
                     }
 
                 }
-                context.SaveChanges();      
-          
-        }
-        public void TruncateDB()
-        {
-            
+                context.SaveChanges();
+
+            }
+            public void TruncateDB()
+            {
+
                 foreach (var el in context.Companies)
                 {
                     context.Remove(el);
@@ -436,110 +432,110 @@ namespace CompaniesProjectz.Controllers
 
                 context.SaveChanges();
 
-            
-        }
+
+            }
 
             public List<object> TapPagesInfo(string choice, byte page)
             {
-                
-                    List<object> list = new List<object>();
 
-                    if (page == 1)
+                List<object> list = new List<object>();
+
+                if (page == 1)
+                {
+
+                    foreach (var el in context.Companies)
                     {
-
-                        foreach (var el in context.Companies)
+                        if (el.TickerSymbol == choice)
                         {
-                            if (el.TickerSymbol == choice)
-                            {
-                                list.Add(el);
-                                break;
-                            }
-
+                            list.Add(el);
+                            break;
                         }
 
-                        foreach (var el in context.Owners)
-                        {
-
-                            if (el.CEONavigation.TickerSymbol == choice)
-                            {
-                                list.Add(el);
-                                break;
-                            }
-
-                        }
-
-                        foreach (var el in context.Statistics)
-                        {
-
-                            if (el.IdTsCompanyNavigation.TickerSymbol == choice)
-                            {
-                                list.Add(el);
-                                break;
-                            }
-
-                        }
-
-                        foreach (var el in context.IndividualInvestors)
-                        {
-                            if (el.IdTsCompanyNavigation.TickerSymbol == choice)
-                            {
-                                list.Add(el);
-                                break;
-                            }
-
-
-                        }
-
-                        foreach (var el in context.CompaniesInstInvestors)
-                        {
-                            if (el.IdTsCompanyNavigation.TickerSymbol == choice)
-                            {
-                                list.Add(el);
-                                break;
-                            }
-
-                        }
-                    }
-                    else if (page == 2)
-                    {
-                        foreach (var el in context.IndividualInvestors)
-                        {
-                            if (el.InvestorName == choice)
-                            {
-                                list.Add(el);
-                                break;
-                            }
-
-
-                        }
-                    }
-                    else if (page == 3)
-                    {
-                        foreach (var el in context.InstitutionalInvestors)
-                        {
-                            if (el.InvestorName == choice)
-                            {
-                                list.Add(el);
-                                break;
-                            }
-
-
-                        }
-
-                        foreach (var el in context.CompaniesInstInvestors)
-                        {
-                            if (el.IdInstinvestorNavigation.InvestorName == choice)
-                            {
-                                list.Add(el);
-
-                            }
-
-                        }
                     }
 
-                    return list;
-                
+                    foreach (var el in context.Owners)
+                    {
+
+                        if (el.CEONavigation.TickerSymbol == choice)
+                        {
+                            list.Add(el);
+                            break;
+                        }
+
+                    }
+
+                    foreach (var el in context.Statistics)
+                    {
+
+                        if (el.IdTsCompanyNavigation.TickerSymbol == choice)
+                        {
+                            list.Add(el);
+                            break;
+                        }
+
+                    }
+
+                    foreach (var el in context.IndividualInvestors)
+                    {
+                        if (el.IdTsCompanyNavigation.TickerSymbol == choice)
+                        {
+                            list.Add(el);
+                            break;
+                        }
+
+
+                    }
+
+                    foreach (var el in context.CompaniesInstInvestors)
+                    {
+                        if (el.IdTsCompanyNavigation.TickerSymbol == choice)
+                        {
+                            list.Add(el);
+                            break;
+                        }
+
+                    }
+                }
+                else if (page == 2)
+                {
+                    foreach (var el in context.IndividualInvestors)
+                    {
+                        if (el.InvestorName == choice)
+                        {
+                            list.Add(el);
+                            break;
+                        }
+
+
+                    }
+                }
+                else if (page == 3)
+                {
+                    foreach (var el in context.InstitutionalInvestors)
+                    {
+                        if (el.InvestorName == choice)
+                        {
+                            list.Add(el);
+                            break;
+                        }
+
+
+                    }
+
+                    foreach (var el in context.CompaniesInstInvestors)
+                    {
+                        if (el.IdInstinvestorNavigation.InvestorName == choice)
+                        {
+                            list.Add(el);
+
+                        }
+
+                    }
+                }
+
+                return list;
+
             }
+
         
-    }
-}
+}   }  
