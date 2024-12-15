@@ -3,7 +3,7 @@
 Brief Description:
 -
 
-That's one of my first projects ever which aim is to demonstrate how MVC works with a connection to database, stored in sql tables.
+That's one of my first projects ever which aim is to demonstrate how to use MVC and SSMS inorder to make a comfortable way to make CRUD operations on a given database, stored in sql tables.
 
 What it looks like?
 -
