@@ -20,5 +20,14 @@ What it looks like?
 -  View of investor info:
 ![Screenshot 2024-12-15 101515](https://github.com/user-attachments/assets/f61e1605-cb79-49b4-83b4-d26452a32ce5)
 
+-  Comfortable way to perform CRUD operations:
+![Screenshot 2024-12-15 111638](https://github.com/user-attachments/assets/1a92f051-abc6-44e0-a0a9-662bc84fe452)
+
+And a video which captures most of the actions you can do with this program:
+-
+
+https://github.com/user-attachments/assets/a03223b0-3258-46b1-a12a-37e02f62cc86
+
+
 
 
