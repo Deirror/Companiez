@@ -26,7 +26,8 @@ What it looks like?
 And a video which captures most of the actions you can do with this program:
 -
 
-https://github.com/user-attachments/assets/a03223b0-3258-46b1-a12a-37e02f62cc86
+https://github.com/user-attachments/assets/066b9f46-cd78-47b0-84d9-b072b2a64291
+
 
 
 
