@@ -2,7 +2,7 @@
 
 ![brands-image-3](https://github.com/user-attachments/assets/d89c8001-2e5d-4558-b22a-15ae72d28f78)
 
-Brief Description:
+Brief Description
 -
 
 This is one of my first projects to demonstrate how to use MVC and SSMS to make a convenient way to perform CRUD operations on a given database, stored in sql tables.
@@ -25,12 +25,7 @@ What it looks like?
 -  Comfortable way to perform CRUD operations:
 ![Screenshot 2024-12-15 111638](https://github.com/user-attachments/assets/1a92f051-abc6-44e0-a0a9-662bc84fe452)
 
-And a video which captures most of the actions you can do with this program:
+And a video which captures most of the actions you can do with this program
 -
 
 https://github.com/user-attachments/assets/066b9f46-cd78-47b0-84d9-b072b2a64291
-
-
-
-
-
